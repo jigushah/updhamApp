@@ -9,8 +9,11 @@ import {GET_DOCUMENT_LIST} from '../actions/index'
 export const submitForm = (value) => (dispatch) => {
   debugger
   return new Promise((resolve, reject) => {
-    value.image='';
-    return HttpClient.post(urlMapper.submitForm, value)
+    // value.image='';
+    let aa = value;
+    aa.photo = value.image.data;
+    delete aa.image;
+    return HttpClient.post(urlMapper.submitForm, aa)
       .then(res => {
         debugger
         resolve(res)
