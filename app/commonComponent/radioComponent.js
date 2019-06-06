@@ -21,7 +21,7 @@ class RadioSingle extends React.Component {
   }
 }
 
-class RadioComponent extends React.Component {
+export class RadioComponent extends React.Component {
   render() {
     let { onSelect, currentSelected } = this.props;
     return (
@@ -35,4 +35,17 @@ class RadioComponent extends React.Component {
   }
 }
 
-export default RadioComponent
+export class RadioComponentShreeman extends React.Component {
+  render() {
+    let { onSelect, currentSelected } = this.props;
+    return (
+      <View style={{ alignItems: 'center', justifyContent: 'space-around', flexDirection: 'row' }}>
+        <RadioSingle label={'શ્રીમાન'} value={'Male'} currentSelected={currentSelected} onSelect={onSelect} />
+        <RadioSingle label={'શ્રીમતી'} value={'Female'} currentSelected={currentSelected} onSelect={onSelect} />
+      </View>
+    );
+  }
+}
+
+
+// export default RadioComponent

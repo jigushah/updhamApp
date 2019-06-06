@@ -40,7 +40,8 @@ export const getDocument = () => (dispatch) => {
       .then(res => {
         debugger
         let doc = res.data.map(d => {
-          d.event_file = `${urlMapper.BASE_URL}${d.event_file}`;
+          let media_file=d.event_file.split('.com')[1]
+          d.event_file = `${urlMapper.S3_MEDIA_URL}${media_file}`;
           return d;
         })
         dispatch(docs('document',doc))

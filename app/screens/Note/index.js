@@ -12,6 +12,9 @@ class NotesScreen extends React.Component {
       </View>
     );
   };
+  static navigationOptions = {
+    title: 'સૂચના',
+  };
   render() {
     return (
       <Container title={'Notes'}>

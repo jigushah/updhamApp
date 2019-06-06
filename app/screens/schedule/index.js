@@ -3,6 +3,9 @@ import { Dimensions, Image, View } from 'react-native';
 import Container from '../../commonComponent/containerComponent';
 const { width } = Dimensions.get('window');
 class ScheduleScreen extends React.Component {
+  static navigationOptions = {
+    title: 'સમયપત્રક',
+  };
   render() {
     return (
       <Container title="Schedule">
