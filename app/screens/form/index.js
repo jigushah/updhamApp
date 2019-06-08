@@ -6,7 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import * as yup from 'yup';
 import Container from '../../commonComponent/containerComponent';
 import { FormFieldError, FormFieldInput, FormFieldTitle } from '../../commonComponent/formFieldTitle';
-import { RadioComponent, RadioComponentShreeman } from '../../commonComponent/radioComponent';
+import { RadioComponent, RadioComponentShreeman, RadioComponentMulVidhi, RadioComponentDisease } from '../../commonComponent/radioComponent';
 import { submitForm } from '../../actions/formAction'
 import { connect } from 'react-redux';
 import ContactNumberComponent from '../../commonComponent/contactComponent';
@@ -19,10 +19,12 @@ const validationSchema = yup.object().shape({
   mobile_number: yup.number().required().label('Mobile Number'),
   phone_number: yup.number().required().label('Phone Number'),
   name_of_relative: yup.string().required().label('Name of relatives'),
-  ritauls: yup.string().required().label('ritauls'),
+  ritauls: yup.string().required().label('Rituals'),
   type: yup.string().required().label('Type'),
   image: yup.string().required().label('Image'),
-  is_shreeman: yup.string().required().label('Shreeman')
+  is_shreeman: yup.string().required().label('Shreeman'),
+  area: yup.string().required().label('Area'),
+  city: yup.string().required().label('City')
 });
 
 const options = {
@@ -49,7 +51,7 @@ class FormScreen extends React.Component {
       <Container title='Form'>
         <KeyboardAwareScrollView>
           <Formik
-            initialValues={{ name: '',address:'',mobile_number:'',phone_number:'',type:'',name_of_relative:'',ritauls:'',image:'',is_shreeman:'' }}
+            initialValues={{ name: '',address:'',mobile_number:'',phone_number:'',type:'',name_of_relative:'',ritauls:'',image:'',is_shreeman:'',area:'',city:'', diseasesRequired:'' }}
             onSubmit={(values, actions) => {
               // alert(JSON.stringify(values));
               this.props.submitForm(values)
@@ -75,6 +77,14 @@ class FormScreen extends React.Component {
                 <FormFieldInput value={formikProps.values.address} onChangeTextInput={formikProps.handleChange('address') } />
                 {formikProps.touched.address  && <FormFieldError error={formikProps.errors.address} />}
 
+                <FormFieldTitle title={'વિસ્તાર :'} />
+                <FormFieldInput value={formikProps.values.area} onChangeTextInput={formikProps.handleChange('area') } />
+                {formikProps.touched.area  && <FormFieldError error={formikProps.errors.area} />}
+
+                <FormFieldTitle title={'શહેર :'} />
+                <FormFieldInput value={formikProps.values.city} onChangeTextInput={formikProps.handleChange('city') } />
+                {formikProps.touched.city  && <FormFieldError error={formikProps.errors.city} />}
+
                 <FormFieldTitle title={'મો.નં. :'} />
                 <FormFieldInput keyboardType={'phone-pad'} value={formikProps.values.mobile_number} onChangeTextInput={formikProps.handleChange('mobile_number')} />
                 {formikProps.touched.mobile_number && <FormFieldError error={formikProps.errors.mobile_number} />}
@@ -92,11 +102,13 @@ class FormScreen extends React.Component {
                 {formikProps.touched.type && <FormFieldError error={formikProps.errors.type} />}
 
                 <FormFieldTitle title={'આપશ્રી મૂલવિધિથી ઉપધાન કરવા ઉત્સુક છો ?'} />
-                <FormFieldInput value={formikProps.values.ritauls} onChangeTextInput={formikProps.handleChange('ritauls')} />
+                {/* <FormFieldInput value={formikProps.values.ritauls} onChangeTextInput={formikProps.handleChange('ritauls')} /> */}
+                <RadioComponentMulVidhi currentSelected={formikProps.values.ritauls || ''} onSelect={formikProps.handleChange('ritauls')} />
                 {formikProps.touched.ritauls && <FormFieldError error={formikProps.errors.ritauls} />}
 
                 <FormFieldTitle title={'કોઈ બિમારી હોય તો તે જાણકારી આપશો'} />
-                <FormFieldInput value={formikProps.values.diseases} onChangeTextInput={formikProps.handleChange('diseases')} />
+                <RadioComponentDisease currentSelected={formikProps.values.diseasesRequired||''} onSelect={formikProps.handleChange('diseasesRequired')} />
+                {formikProps.values.diseasesRequired==="Yes" && <FormFieldInput value={formikProps.values.diseases} onChangeTextInput={formikProps.handleChange('diseases')} />}
                 <FormFieldError error={formikProps.errors.diseases} />
                 <TouchableOpacity onPress={() => {
                   ImagePicker.showImagePicker(options, (response) => {
