@@ -54,6 +54,9 @@ class FormScreen extends React.Component {
             initialValues={{ name: '',address:'',mobile_number:'',phone_number:'',type:'',name_of_relative:'',ritauls:'',image:'',is_shreeman:'',area:'',city:'', diseasesRequired:'' }}
             onSubmit={(values, actions) => {
               // alert(JSON.stringify(values));
+              if(values.diseasesRequired === "No"){
+                values.diseases = values.diseasesRequired
+              }
               this.props.submitForm(values)
                 .then(res => {
                   alert('user created sucessfully')
