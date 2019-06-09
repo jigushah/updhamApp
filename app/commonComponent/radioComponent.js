@@ -47,5 +47,27 @@ export class RadioComponentShreeman extends React.Component {
   }
 }
 
+export class RadioComponentMulVidhi extends React.Component {
+  render() {
+    let { onSelect, currentSelected } = this.props;
+    return (
+      <View style={{ alignItems: 'center', justifyContent: 'space-around', flexDirection: 'row' }}>
+        <RadioSingle label={'હા'} value={'Yes'} currentSelected={currentSelected} onSelect={onSelect} />
+        <RadioSingle label={'ના'} value={'No'} currentSelected={currentSelected} onSelect={onSelect} />
+      </View>
+    );
+  }
+}
 
+export class RadioComponentDisease extends React.Component {
+  render() {
+    let { onSelect, currentSelected } = this.props;
+    return (
+      <View style={{ alignItems: 'center', justifyContent: 'space-around', flexDirection: 'row' }}>
+        <RadioSingle label={'હા'} value={'Yes'} currentSelected={currentSelected} onSelect={onSelect} />
+        <RadioSingle label={'ના'} value={'No'} currentSelected={currentSelected} onSelect={onSelect} />
+      </View>
+    );
+  }
+}
 // export default RadioComponent
