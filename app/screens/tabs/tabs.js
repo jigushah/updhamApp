@@ -8,9 +8,8 @@ import DocumentScreen from '../document/index'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialUIIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 const TabNavigator = createBottomTabNavigator({
-  Form: FormScreen,
-  Notes: NoteScreen,
   Schedule: ScheduleScreen,
+  Form: FormScreen,
   Notes: NoteScreen,
   Document: DocumentScreen,
 }, {
@@ -40,10 +39,10 @@ const TabNavigator = createBottomTabNavigator({
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'gray',
-      inactiveTintColor: 'black',
-      inactiveBackgroundColor:'rgb(251,216,84)',
-      activeBackgroundColor:'rgb(251,216,84)',
+      activeTintColor: 'black',
+      inactiveTintColor: 'gray',
+      inactiveBackgroundColor:'rgba(1,168,202,0.41)',
+      activeBackgroundColor:'rgba(1,168,202,0.41)',
     },
     lazy:false
   });

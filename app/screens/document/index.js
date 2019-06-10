@@ -12,16 +12,16 @@ class DocumentScreen extends React.Component {
     this.props.getDocument()
   }
   static navigationOptions = {
-    title: 'ફોટા',
+    title: 'ગેલેરી',
   };
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Header title="Document" />
+        <Header title="ગેલેરી" />
         <ScrollView style={{ flex: 1 }}>
           <View style={{ paddingTop: 10, flexDirection: 'row', flexWrap: 'wrap' }}>
-            {this.props.document && this.props.document.map(doc => {
-              return <Image resizeMode={'contain'} style={{ width: width * 0.45, height: width * 0.30, margin:5 }} source={{uri:`${doc.event_file}`}} />
+            {this.props.document && this.props.document.map((doc,i) => {
+              return <Image key={i} resizeMode={'contain'} style={{ width: width * 0.45, height: width * 0.30, margin:5 }} source={{uri:`${doc.event_file}`}} />
             })}
           </View>
         </ScrollView>

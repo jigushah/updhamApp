@@ -39,7 +39,7 @@ class FormScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      contct: '-: સંપર્ક :-'
     }
   }
 
@@ -48,7 +48,7 @@ class FormScreen extends React.Component {
   };
   render() {
     return (
-      <Container title='Form'>
+      <Container title='ફોર્મ'>
         <KeyboardAwareScrollView>
           <Formik
             initialValues={{ name: '',address:'',mobile_number:'',phone_number:'',type:'',name_of_relative:'',ritauls:'',image:'',is_shreeman:'',area:'',city:'', diseasesRequired:'' }}
@@ -59,7 +59,7 @@ class FormScreen extends React.Component {
               }
               this.props.submitForm(values)
                 .then(res => {
-                  alert('user created sucessfully')
+                  alert('Form submitted successfully')
                   actions.resetForm({})
                   actions.setSubmitting(false);
                 }).catch(err => {
@@ -154,6 +154,7 @@ class FormScreen extends React.Component {
               </View>
             )}
           </Formik>
+          <Text style={{color: 'red', fontSize: 17, textAlign: 'center', justifyContent: 'center'}}>{this.state.contct}</Text>
           <ContactNumberComponent />
         </KeyboardAwareScrollView>
       </Container>
