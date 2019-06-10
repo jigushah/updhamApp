@@ -21,7 +21,6 @@ export default class App extends React.Component {
             isClosed: 0
         }
     }
-
     onPress = () => {
         this.setState({
             isClosed: 1
