@@ -7,8 +7,8 @@ class FormFieldTitle extends React.Component {
   render() {
     let { title } = this.props;
     return (
-      <View style={{ justifyContent: 'center' }}>
-        <Text style={{color:'rgb(83,83,83)', fontWeight:"400"}}>{title}</Text>
+      <View style={{ justifyContent: 'center', marginTop: 20 }}>
+        <Text style={{color:'rgb(0,0,0)', fontWeight:"800"}}>{title}</Text>
       </View>
     );
   }
