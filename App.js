@@ -6,12 +6,15 @@ import {store} from './app/store/store'
 import Video from 'react-native-video';
 import RootStack from './app/screens/tabs/tabs'
 import MainVideo from './app/images/vid.mp4'
+import SplashScreen from 'react-native-splash-screen'
+
 
 let Navigation = createAppContainer(RootStack);
 
 export default class App extends React.Component {
 
     componentDidMount() {
+        SplashScreen.hide();
         StatusBar.setHidden(true);
     }
 

@@ -24,7 +24,8 @@ const validationSchema = yup.object().shape({
   image: yup.string().required().label('Image'),
   is_shreeman: yup.string().required().label('Shreeman'),
   area: yup.string().required().label('Area'),
-  city: yup.string().required().label('City')
+  city: yup.string().required().label('City'),
+  age: yup.number().required().label('Age')
 });
 
 const options = {
@@ -51,7 +52,21 @@ class FormScreen extends React.Component {
       <Container title='ફોર્મ'>
         <KeyboardAwareScrollView>
           <Formik
-            initialValues={{ name: '',address:'',mobile_number:'',phone_number:'',type:'',name_of_relative:'',ritauls:'',image:'',is_shreeman:'',area:'',city:'', diseasesRequired:'' }}
+            initialValues={{ 
+            name: '',
+            address:'',
+            mobile_number:'',
+            phone_number:'',
+            type:'',
+            age:'',
+            name_of_relative:'',
+            ritauls:'',
+            image:'',
+            is_shreeman:'',
+            area:'',
+            city:'',
+             diseasesRequired:'' 
+            }}
             onSubmit={(values, actions) => {
               // alert(JSON.stringify(values));
               if(values.diseasesRequired === "No"){
@@ -70,6 +85,10 @@ class FormScreen extends React.Component {
           >
             {formikProps => (
               <View style={{ padding: 15 }}>
+                <View style={{paddingBottom: 10, justifyContent:'center', alignItems:'center'}}>
+                <FormFieldTitle title={'નોંધ: આ ફોર્મ English માં ભરવું.'} />
+                </View>
+
                 <RadioComponentShreeman currentSelected={formikProps.values.is_shreeman || ''} onSelect={formikProps.handleChange('is_shreeman')} />
                 {formikProps.touched.is_shreeman && <FormFieldError error={formikProps.errors.is_shreeman} />}
                 <FormFieldTitle title={'નામ :'} />
@@ -95,6 +114,10 @@ class FormScreen extends React.Component {
                 <FormFieldTitle title={'ફોન નં. :'} />
                 <FormFieldInput keyboardType={'phone-pad'} value={formikProps.values.phone_number} onChangeTextInput={formikProps.handleChange('phone_number')} />
                 {formikProps.touched.phone_number && <FormFieldError error={formikProps.errors.phone_number} />}
+
+                <FormFieldTitle title={'ઉંમર :'} />
+                <FormFieldInput value={formikProps.values.age} onChangeTextInput={formikProps.handleChange('age') } />
+                {formikProps.touched.age  && <FormFieldError error={formikProps.errors.age} />}
 
                 <FormFieldTitle title={'ઉપધાન તપમાં તમારા ઘરમાંથી કોઈ સંબંધી સાથે કરવાના હોય તો તેમનું નામ :'} />
                 <FormFieldInput value={formikProps.values.name_of_relative} onChangeTextInput={formikProps.handleChange('name_of_relative')} />
@@ -136,6 +159,11 @@ class FormScreen extends React.Component {
                 }
                 </TouchableOpacity>
                 {formikProps.touched.image && <FormFieldError error={formikProps.errors.image} />}
+                
+                <FormFieldTitle title={'ઈ-મેઇલ :'} />
+                <FormFieldInput value={formikProps.values.email} onChangeTextInput={formikProps.handleChange('email')} />
+                {formikProps.touched.email && <FormFieldError error={formikProps.errors.email} />}
+
 
                 <FormFieldTitle title={'હું ઉપધાન તપના બધા નિયમોનું પાલન કરીશ અને ગુરૂની આજ્ઞાનું પાલન કરીશ.'} />
                 {formikProps.isSubmitting ? (
