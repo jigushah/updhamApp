@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import React from 'react';
-import { ActivityIndicator, Button, Image, Text, TouchableOpacity, View } from 'react-native';
+import {ActivityIndicator, Button, Dimensions, Image, Text, TouchableOpacity, View} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import * as yup from 'yup';
@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import ContactNumberComponent from '../../commonComponent/contactComponent';
 
 const avatar = require('../../images/avatar.png');
+const {width} = Dimensions.get('window');
 
 const validationSchema = yup.object().shape({
   name: yup.string().required().label('Name'),
@@ -45,11 +46,11 @@ class FormScreen extends React.Component {
   }
 
   static navigationOptions = {
-    title: 'ફોર્મ',
+    title: 'આવેદન પત્ર',
   };
   render() {
     return (
-      <Container title='ફોર્મ'>
+      <Container title='આવેદન પત્ર'>
         <KeyboardAwareScrollView>
           <Formik
             initialValues={{ 
@@ -86,7 +87,11 @@ class FormScreen extends React.Component {
             {formikProps => (
               <View style={{ padding: 15 }}>
                 <View style={{paddingBottom: 10, justifyContent:'center', alignItems:'center'}}>
-                <FormFieldTitle title={'નોંધ: આ ફોર્મ English માં ભરવું.'} />
+                  <Image resizeMode={'contain'} style={{width: width * 0.98,height: width * 0.50, marginTop: 10,}}
+                         source={require('../../images/splash.png')}/>
+                </View>
+                <View style={{paddingBottom: 10, justifyContent:'center', alignItems:'center'}}>
+                  <FormFieldTitle title={'નોંધ: આવેદન પત્ર English માં ભરવું.'} />
                 </View>
 
                 <RadioComponentShreeman currentSelected={formikProps.values.is_shreeman || ''} onSelect={formikProps.handleChange('is_shreeman')} />
