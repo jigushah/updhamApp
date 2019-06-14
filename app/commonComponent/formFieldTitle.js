@@ -8,7 +8,7 @@ class FormFieldTitle extends React.Component {
     let { title } = this.props;
     return (
       <View style={{ justifyContent: 'center', marginTop: 20 }}>
-        <Text style={{color:'rgb(0,0,0)', fontWeight:"800"}}>{title}</Text>
+        <Text style={{color:'rgb(161,28,200)', fontWeight:"800"}}>{title}</Text>
       </View>
     );
   }
@@ -33,8 +33,8 @@ class FormFieldInput extends React.Component {
       value={value}
       keyboardType={keyboardType || 'default'}
                   style={{
-                    borderWidth: 1,
-                    borderColor: 'rgb(223,223,223)',
+                    borderWidth: 2,
+                    borderColor: 'rgb(31,150,0)',
                     padding: 10,
                     marginBottom: 3,
                     borderRadius:5,

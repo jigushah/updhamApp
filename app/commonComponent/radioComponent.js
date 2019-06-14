@@ -15,7 +15,7 @@ class RadioSingle extends React.Component {
     return (
       <TouchableOpacity onPress={() => { onSelect(value) }} style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'space-around' }}>
         <Icon name={currentSelected == value ? 'ios-radio-button-on' : 'ios-radio-button-off'} color='gray' size={20} />
-        <Text style={{ color: 'rgb(0,0,0)', paddingLeft: 5, fontWeight: "800" }}>{label}</Text>
+        <Text style={{ color:'rgb(158,28,200)', paddingLeft: 5, fontWeight: "800" }}>{label}</Text>
       </TouchableOpacity>
     );
   }
