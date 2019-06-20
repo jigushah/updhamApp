@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, View} from 'react-native'
 import { Text, Left, Right, Body } from 'native-base';
 
-const contactPerson =[{title:"પ્રશાંત મહેતા",number:"૯૮૭૯૪ ૨૦૧૨૦",align:"left"},{title:"તુષાર મહેતા",number:"૯૮૭૯૮ ૮૦૧૮૦",align:"center"},{title:"હિરેન ગઢેચા",number:"૯૮૭૯૬ ૯૬૧૯૬",align:"right"}]
+const contactPerson =[{title:"પ્રશાંત મહેતા",number:"૯૮૭૯૪ ૨૦૧૨૦",align:"left"},{title:"તુષાર મહેતા",number:"૯૮૭૯૮ ૮૦૮૮૦",align:"center"},{title:"હિરેન ગઢેચા",number:"૯૮૭૯૬ ૯૬૧૯૬",align:"right"}]
 
 class ContactNumberComponent extends React.Component {
   render() {
